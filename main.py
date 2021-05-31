@@ -1,5 +1,5 @@
-from trainer.engine import main_worker
-from trainer.utils import arg_parse
+from engine.trainer import main_worker
+from engine.utils import arg_parse
 
 
 if __name__ == '__main__':

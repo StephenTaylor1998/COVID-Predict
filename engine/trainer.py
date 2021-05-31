@@ -2,7 +2,7 @@ import tqdm
 import torch
 import models
 from data_process import covid_dataloader
-from trainer.utils import adjust_learning_rate, save_weight, load_weight
+from engine.utils import adjust_learning_rate, save_weight, load_weight
 
 
 def train(train_loader, model, criterion, optimizer, epoch):
