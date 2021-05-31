@@ -6,7 +6,7 @@ from data_process import covid_dataloader, covid_dataset
 def origin(path: str):
     train_data = covid_dataset.COVIDDataset(path, mode="train")
     test_data = covid_dataset.COVIDDataset(path, mode="test")
-    return train_data.target.numpy(), test_data.target.numpy()
+    return train_data.target.numpy().squeeze(1), test_data.target.numpy().squeeze(1)
 
 
 def predict(path: str, model):
@@ -20,7 +20,7 @@ def predict(path: str, model):
     for inputs, _ in test_loader:
         test_output.append(model(inputs).detach().numpy())
     test_output = numpy.concatenate(test_output, axis=0)
-    return train_output, test_output
+    return train_output.squeeze(1), test_output.squeeze(1)
 
 
 def get_info(path: str):
